@@ -71,4 +71,46 @@ Classic load-use case:
 LW  R3, [R2]
 ADD R4, R3, R1
 
+Behavior
+
+Load in EX stage
+
+Dependent instruction in RF stage
+
+Pipeline stalls for 1 cycle
+
+RF/EX stage is flushed
+
+Execution resumes with correct forwarded data
+
+🧾 Register File Design
+
+8 × 16-bit registers
+
+Combinational read ports
+
+Synchronous write port
+
+Reset clears all registers
+
+This ensures correct interaction with forwarding and WB stage.
+
+🧪 Verification
+
+Simulated using:
+
+ModelSim (via Quartus Prime)
+
+Tested Scenarios
+
+Independent instructions
+
+ALU forwarding
+
+Load-use hazard (stall + forward)
+
+Store followed by load
+
+WB and EX/MEM forwarding correctness
+
 
