@@ -51,3 +51,24 @@ A dedicated forwarding unit resolves RAW hazards using:
 
 **Priority:**
 
+
+Forwarding supports:
+- ALU → ALU
+- LLI → ALU
+- Store data forwarding
+- ALU → Store
+- WB → EX
+
+Load results are forwarded **only from MEM/WB** (never EX/MEM).
+
+---
+
+## ⏸️ Load-Use Hazard Handling
+
+Classic load-use case:
+
+```asm
+LW  R3, [R2]
+ADD R4, R3, R1
+
+
